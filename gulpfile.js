@@ -3,16 +3,12 @@ var gulp = require('gulp'),
 
 var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
-var mocha = require('gulp-mocha');
 var runSequence = require('run-sequence');
 
 
 var srcFile = './src/*.js';
 var buildFolder = './build';
 
-
-var testSrcFile = './test/src/*.js';
-var testBuildFolder = './test/build';
 
 
 
