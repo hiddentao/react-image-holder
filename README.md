@@ -1,6 +1,6 @@
 # react-image-holder
 
-**TODO: unit tests**
+[![Build Status](https://secure.travis-ci.org/hiddentao/react-image-holder.png)](http://travis-ci.org/hiddentao/react-image-holder)
 
 An image component for React which can render real images and placeholder images generated using [holder.js](https://github.com/imsky/holder/).
 
