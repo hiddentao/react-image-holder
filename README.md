@@ -2,11 +2,11 @@
 
 [![Build Status](https://secure.travis-ci.org/hiddentao/react-image-holder.png)](http://travis-ci.org/hiddentao/react-image-holder)
 
-An image component for React which can render real images and placeholder images generated using [holder.js](https://github.com/imsky/holder/).
+An image component for React which can render _real_ images and/or _placeholder_ images generated using [holder.js](https://github.com/imsky/holder/).
 
-This allows you to develop using placeholder images until you have real images available to show. Then when it comes to switch you can use the same component and simply update the `src` property.
+This allows you to develop using placeholder images until you have real images available to show. When it's time to switch you simply need to update the `src` property of the component.
 
-And thanks to holder.js you can use placeholders even when offline.
+(Thanks to holder.js you can use placeholders even when offline!).
 
 ## Installation
 
