@@ -1,52 +1,53 @@
-var React = require('react'),
+var _ = require('lodash'),
+  React = require('react'),
   qs = require('query-string');
 
 
-module.exports = React.createClass({
+var DEFAULT_PROPS = {
+  usePlaceholder: false,
+  placeholder: {
+    /* See https://github.com/imsky/holder#placeholder-options for info on more props and themes */
+    theme: 'vine',
+    auto: true,
+  },
+};
+
+
+var Img = React.createClass({
   propTypes: {
     src: React.PropTypes.string.isRequired,
-    width: React.PropTypes.string.number,
-    height: React.PropTypes.string.number,
-    className: React.PropTypes.string,
+    usePlaceholder: React.PropTypes.bool,
     placeholder: React.PropTypes.object,
   },
 
   getDefaultProps: function() {
-    return {
-      className: undefined,
-      width: undefined,
-      height: undefined,
-      placeholder: {
-        /* See https://github.com/imsky/holder#placeholder-options for info on more props and themes */
-        theme: 'vine',
-        auto: true,
-      }
-    };
+    return DEFAULT_PROPS;
   },
 
   render: function() {
-    var attrs = {
-      className: this.props.className,
-      width: this.props.width,
-      height: this.props.height,
-    };
+    let props = this.props;
 
-    // real image
-    if (this._isPlaceholderImage()) {
-      let query = qs.stringify(this.props.placeholder);
+    var attrs = _.omit(props, 'src', 'usePlaceholder', 'placeholder');
 
+    // placeholder
+    if (props.usePlaceholder) {
+      let query = qs.stringify(props.placeholder);
+
+      let src = `holder.js/${attrs.width}x${attrs.height}?${query}`;
+
+      attrs = _.omit(attrs, 'width', 'height');
+      
       return (
-        <img {...attrs} ref="placeholder" data-src={`${this.props.src}?${query}`} />
+        <img {...attrs} ref="placeholder" data-src={src} />
       );
     } 
-    // placeholder
+    // real
     else {
       return (
-        <img {...attrs} src={this.props.src} />
+        <img {...attrs} src={props.src} />
       );
     }
   },
-
 
   componentDidMount: function() {
     this._initPlaceholderImage();
@@ -54,16 +55,16 @@ module.exports = React.createClass({
 
 
   componentDidUpdate: function(oldProps) {
-    if (oldProps.src !== this.props.src) {
-      this._initPlaceholderImage();
-    }
+    this._initPlaceholderImage();
   },
 
 
   _initPlaceholderImage: function() {
-    if (!this._isPlaceholderImage()) {
+    if (this._placeholderInitialised || !this.props.usePlaceholder) {
       return;
     }
+
+    this._placeholderInitialised = true;
 
     let node = React.findDOMNode(this.refs.placeholder);
 
@@ -79,10 +80,11 @@ module.exports = React.createClass({
     });
   },
 
-  _isPlaceholderImage: function() {
-    return (0 === this.props.src.indexOf('holder.js'));
-  },
-
 });
 
 
+// make 
+Img.DEFAULT_PROPS = DEFAULT_PROPS;
+
+
+module.exports = Img;

@@ -1,6 +1,6 @@
 {
   "name": "react-image-holder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React image component for real images and holder.js rendered placeholders",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "holderjs": "~2.8.1",
+    "lodash": "~3.10.1",
     "query-string": "~2.4.0"
   }
 }
