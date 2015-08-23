@@ -26,7 +26,7 @@ var Img = require('react-image-holder');
 var realImage = (
   <Img src="http://animalia-life.com/data_images/cat/cat5.jpg" />
 );
-```js
+```
 
 Output:
 
@@ -43,7 +43,7 @@ var realImage = (
     height="450"
     className="cat-photo" />
 );
-```js
+```
 
 Output:
 
@@ -63,7 +63,7 @@ var realImage = (
     usePlaceholder="true"
     />
 );
-```js
+```
 
 Output:
 
@@ -92,7 +92,7 @@ var realImage = (
     placeholder={placeholderProps}
     />
 );
-```js
+```
 
 Output:
 
