@@ -60,7 +60,7 @@ var realImage = (
     width="802"
     height="450"
     className="cat-photo" 
-    usePlaceholder="true"
+    usePlaceholder={true}
     />
 );
 ```
@@ -88,7 +88,7 @@ var realImage = (
   <Img src="http://animalia-life.com/data_images/cat/cat5.jpg" 
     width="802"
     height="450"
-    usePlaceholder="true"
+    usePlaceholder={true}
     placeholder={placeholderProps}
     />
 );
