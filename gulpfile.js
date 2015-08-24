@@ -4,8 +4,9 @@ var gulp = require('gulp'),
 
 var runSequence = require('run-sequence');
 
-var babel = require('gulp-babel');
+var browserify = require('browserify');
 var uglify = require('gulp-uglify');
+var source = require('vinyl-source-stream2');
 
 var minifyCss = require('gulp-minify-css');
 var stylus = require('gulp-stylus');
@@ -56,14 +57,24 @@ gulp.task('img', function() {
 
 
 
-
 gulp.task('js', function() {
-  return gulp.src( path.join(srcFolder, 'js', 'app.js') )
-    .pipe( babel() )
-    .pipe( uglify() )
-    .pipe( gulp.dest(path.join(buildFolder, 'js')) )
+  return 
+    browserify({ 
+      entries: [ path.join(srcFolder, 'js', 'app.js') ],
+      debug: false,
+      cache: {},
+      packageCache: {},
+    })
+      bundle()
+      .pipe( source('app.js') )
+      .on('error', function(err) {
+        gutil.log(err.stack);
+      })
+      .pipe( uglify() )
+      .pipe( gulp.dest(path.join(buildFolder, 'js')) )
   ;
 });
+
 
 
 
@@ -72,8 +83,8 @@ gulp.task('default', ['css', 'jade', 'img', 'js']);
 
 gulp.task('watch', ['default'], function() {
   gulp.watch( path.join(srcFolder, 'img', '*.*'), ['img'] );
-  gulp.watch( path.join(srcFolder, 'js', '*.*'), ['js'] );
-  gulp.watch( path.join(srcFolder, 'stylus', '*.*'), ['css'] );
+  gulp.watch( path.join(srcFolder, 'js', '*.js'), ['js'] );
+  gulp.watch( path.join(srcFolder, 'stylus', '*.styl'), ['css'] );
   gulp.watch( path.join(srcFolder, '*.jade'), ['jade'] );
 });
 
