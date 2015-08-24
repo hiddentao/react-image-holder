@@ -6,6 +6,8 @@ An `<img />` component for React which can render _real_ images as well use an o
 
 All placeholders are rendered using [holder.js](https://github.com/imsky/holder), meaning they will work even when offline. You can even configure the component to always render a placeholder for all its instances.
 
+[View demo](https://hiddentao.github.io/react-image-holder)
+
 ## Installation
 
 ```bash
