@@ -1,0 +1,91 @@
+@import 'nib'
+@import 'rupture'
+
+global-reset()
+
+@import '_variables'
+
+
+* 
+  box-sizing border-box
+
+html
+  font-size 16px
+
+body
+  font-family 'Roboto', Arial, Verdana, sans-serif
+
+/* header */
+
+
+header
+  position relative
+  top 0
+  left 0
+  background #000 url('../img/header.jpg') center center
+  background-size cover
+  height 640px
+  width 100%
+  
+  color $white
+  font-size 1.5rem
+  
+  display flex
+  flex-direction column
+  justify-content center
+  
+  &:before
+    content ""
+    position absolute
+    top -2px
+    left -2px
+    width 104%
+    height 642px
+    background inherit
+    filter blur(7px)
+      
+    +below($width-mobile)
+      height 402px
+
+  +below($width-mobile)
+    height 400px
+    font-size 1rem
+
+  & > div
+    margin 0 0 30px
+    text-align center
+    z-index 1
+    padding 0 20px
+    
+  .title
+    font-size 400%
+    font-weight 100
+    
+  .social
+    z-index 2
+  
+/* main */
+
+main
+  background-color #ccc
+  min-height 100vh
+  padding-bottom 2em
+  text-align center
+
+  section.docs
+    display inline-block
+    background-color #fff
+    width 80%
+    position relative
+    top -100px
+    padding 2em
+    z-index 3
+    border-top-right-radius 5px
+    border-top-left-radius 5px
+    text-align left
+    
+    +below($width-mobile)
+      width 100%
+      top 0px
+      border-radius 0
+
