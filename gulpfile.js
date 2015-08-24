@@ -1,3 +1,5 @@
+"use strict";
+
 var gulp = require('gulp'),
   gutil = require('gulp-util'),
   path = require('path');
@@ -58,20 +60,14 @@ gulp.task('img', function() {
 
 
 gulp.task('js', function() {
-  return 
-    browserify({ 
-      entries: [ path.join(srcFolder, 'js', 'app.js') ],
-      debug: false,
-      cache: {},
-      packageCache: {},
+  return browserify(path.join(srcFolder, 'js', 'app.js'))
+    .bundle()
+    .pipe( source('app.js') )
+    .on('error', function(err) {
+      gutil.log(err.stack);
     })
-      bundle()
-      .pipe( source('app.js') )
-      .on('error', function(err) {
-        gutil.log(err.stack);
-      })
-      .pipe( uglify() )
-      .pipe( gulp.dest(path.join(buildFolder, 'js')) )
+    .pipe( uglify() )
+    .pipe( gulp.dest(path.join(buildFolder, 'js')) )
   ;
 });
 

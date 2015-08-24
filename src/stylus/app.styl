@@ -13,19 +13,19 @@ html
   font-size 16px
 
 body
-  font-family 'Roboto', Arial, Verdana, sans-serif
-  background-color #ccc
+  font-family $body-font
+  background-color #333
   min-height 100vh
 
 pre
   margin 1.5em auto 0 !important
   
+code
+  font-family $code-font
+  
 p
   margin 1.5em 0
   
-h2
-  font-weight 700
-  font-size 200%
 
 
 /* header */
@@ -80,10 +80,20 @@ header
   .social
     z-index 2
   
+/* footer */
+
+footer
+  text-align center
+  padding 2em
+  a
+    color $white
+    text-decoration none
+    border-bottom 1px solid $white
+    
+
 /* main */
 
 main
-  padding-bottom 2em
   text-align center
 
   .docs
@@ -105,4 +115,16 @@ main
       
   section
     margin-bottom 2em
+    
+    h2
+      font-weight 700
+      font-size 200%
+      margin-top 2em
+      
+    &:first-child h2
+      margin-top 0
+    
+    .output
+      margin-top 1em
+
 

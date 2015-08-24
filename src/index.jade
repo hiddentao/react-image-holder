@@ -36,15 +36,63 @@ html(lang='en')
             code.language-js.
               var Img = require('react-image-holder');
 
-        section.basic
+        section.example1
           h2 Basic image
           pre.example
             code.language-js.
               &lt;Img src="./img/test1.jpg" /&gt;
           .output
 
+        section.example2
+          h2 Extra attributes
+          p All additional properties passed into the component get added as attributes to the <code>IMG</code> tag.
+          pre.example
+            code.language-js.
+              &lt;Img src="./img/test1.jpg" width="200" height="50" /&gt;
+          .output
 
+        section.example3
+          h2 Placeholder
+          p You must provide <code>width</code> and <code>height</code> when using a placeholder:
+          pre.example
+            code.language-js.
+              &lt;Img src="./img/test1.jpg" width="400" height="100" usePlaceholder={true} /&gt;
+          .output
           
+        section.example4
+          h2 Placeholder customization
+          p You can pass through any of the properties supported by <a href="https://github.com/imsky/holder">holder.js</a>.
+          pre.example
+            code.language-js.
+              &lt;Img 
+                src="./img/test1.jpg" 
+                width="400" 
+                height="100" 
+                usePlaceholder={true} 
+                placeholder={{
+                  theme: 'lava',
+                  size: 50
+                }} /&gt; 
+          .output
+
+
+        section.example5
+          h2 Global configuration
+          p You can override the default settings for the <code>usePlaceholder</code> and <code>placeholder</code> properties for the component:
+          pre.example
+            code.language-js.
+              Img.DEFAULT_PROPS.usePlaceholder = true;
+              Img.DEFAULT_PROPS.placeholder = // etc.
+
+          p.
+            At this point all created instances of this component will 
+            automatically use placeholders, though you can still override 
+            this setting on per-instance basis.
+
+
+    footer
+      <a href="https://github.com/hiddentao/react-image-holder">Github</a> - <a href="https://twitter.com/hiddentao">Twitter</a>
+
     script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js")
     script(type="text/javascript", src="lib/prism/prism.js")
     script(type="text/javascript", src="js/app.js")
