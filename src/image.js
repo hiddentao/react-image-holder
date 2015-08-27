@@ -60,11 +60,9 @@ var Img = React.createClass({
 
 
   _initPlaceholderImage: function() {
-    if (this._placeholderInitialised || !this.props.usePlaceholder) {
+    if (!this.props.usePlaceholder) {
       return;
     }
-
-    this._placeholderInitialised = true;
 
     let node = React.findDOMNode(this.refs.placeholder);
 
