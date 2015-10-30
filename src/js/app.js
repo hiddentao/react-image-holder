@@ -9,7 +9,7 @@ React.render(
 
 
 React.render(
-  <Img src="./img/test1.jpg" width="200" height="50" />, 
+  <Img src="./img/test_non_existent.jpg" width="200" height="50" alt="this is the alt text"/>,
   $('section.example2 .output').get(0)
 );
 

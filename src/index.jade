@@ -45,10 +45,10 @@ html(lang='en')
 
         section.example2
           h2 Extra attributes
-          p All additional properties passed into the component get added as attributes to the <code>IMG</code> tag.
+          p All additional properties passed into the component get added as attributes to the <code>IMG</code> tag (except for `width` and `height`).
           pre.example
             code.language-js.
-              &lt;Img src="./img/test1.jpg" width="200" height="50" /&gt;
+              &lt;Img src="./img/test_non_existent.jpg" width="200" height="50" alt="this is the alt text" /&gt;
           .output
 
         section.example3
