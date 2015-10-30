@@ -44,6 +44,8 @@ var Img = React.createClass({
     // real
     else {
       return (
+        attrs = _.omit(attrs, 'width', 'height');
+        
         <img {...attrs} src={props.src} />
       );
     }
