@@ -27,16 +27,17 @@ var Img = React.createClass({
   render: function() {
     let props = this.props;
 
-    var attrs = _.omit(props, 'src', 'usePlaceholder', 'placeholder');
+    let { width, height } = this.props;
+
+    var attrs = _.omit(props, 'src', 'usePlaceholder', 'placeholder', 
+      'width', 'height');
 
     // placeholder
     if (props.usePlaceholder) {
       let query = qs.stringify(props.placeholder);
 
-      let src = `holder.js/${attrs.width}x${attrs.height}?${query}`;
+      let src = `holder.js/${width}x${height}?${query}`;
 
-      attrs = _.omit(attrs, 'width', 'height');
-      
       return (
         <img {...attrs} ref="placeholder" data-src={src} />
       );
@@ -44,8 +45,6 @@ var Img = React.createClass({
     // real
     else {
       return (
-        attrs = _.omit(attrs, 'width', 'height');
-        
         <img {...attrs} src={props.src} />
       );
     }
