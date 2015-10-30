@@ -20,7 +20,7 @@
     "gulp-util": "~3.0.6",
     "nib": "~1.1.0",
     "react": "~0.13.3",
-    "react-image-holder": "~1.1.1",
+    "react-image-holder": "~1.1.4",
     "reactify": "~1.1.1",
     "run-sequence": "~0.3.6",
     "rupture": "~0.6.1",
