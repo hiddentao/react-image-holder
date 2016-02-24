@@ -30,7 +30,8 @@
     "run-sequence": "~0.3.6"
   },
   "peerDependencies": {
-    "react": "~0.13.3"
+    "react": "~0.13.3",
+    "react-dom": "*"
   },
   "dependencies": {
     "holderjs": "~2.8.1",
