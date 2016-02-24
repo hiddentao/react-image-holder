@@ -30,7 +30,7 @@
     "run-sequence": "~0.3.6"
   },
   "peerDependencies": {
-    "react": "~0.13.3",
+    "react": ">=0.14.7",
     "react-dom": "*"
   },
   "dependencies": {
