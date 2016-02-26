@@ -1,5 +1,6 @@
 var _ = require('lodash'),
   React = require('react'),
+  ReactDOM = require('react-dom'),
   qs = require('query-string');
 
 
@@ -66,7 +67,7 @@ var Img = React.createClass({
       return;
     }
 
-    let node = React.findDOMNode(this.refs.placeholder);
+    let node = ReactDOM.findDOMNode(this.refs.placeholder);
 
     // require in here to prevent errors during server-side rendering
     let Holder = require('holderjs');
