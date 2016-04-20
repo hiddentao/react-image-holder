@@ -1,4 +1,4 @@
-var _ = require('lodash'),
+var omit = require('lodash/omit'),
   React = require('react'),
   ReactDOM = require('react-dom'),
   qs = require('query-string');
@@ -30,7 +30,7 @@ var Img = React.createClass({
 
     let { width, height } = this.props;
 
-    let attrs = _.omit(props, 'src', 'usePlaceholder', 'placeholder');
+    let attrs = omit(props, 'src', 'usePlaceholder', 'placeholder');
 
     // placeholder
     if (props.usePlaceholder) {
@@ -38,7 +38,7 @@ var Img = React.createClass({
 
       let src = `holder.js/${width}x${height}?${query}`;
 
-      let placeholderAttrs = _.omit(attrs, 'width', 'height');
+      let placeholderAttrs = omit(attrs, 'width', 'height');
 
       return (
         <img {...placeholderAttrs} ref="placeholder" data-src={src} />
