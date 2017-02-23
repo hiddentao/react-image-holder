@@ -63,6 +63,9 @@ var Img = React.createClass({
 
 
   _initPlaceholderImage: function() {
+    if (!(typeof window != 'undefined' && window.document)) {
+      return;
+    }
     if (!this.props.usePlaceholder) {
       return;
     }
